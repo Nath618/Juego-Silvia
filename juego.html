@@ -8,7 +8,14 @@
   <style>
     body { margin: 0; padding: 0; background: #222; }
     #gameContainer { width: 100vw; height: 80vh; }
-    #joystick { width: 100vw; height: 20vh; position: fixed; bottom: 0; left: 0; }
+    #joystick {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0; left: 0;
+      background: transparent;
+      pointer-events: auto;
+    }
   </style>
 </head>
 <body>
@@ -55,9 +62,9 @@
 
     const joystick = nipplejs.create({
       zone: document.getElementById('joystick'),
-      mode: 'static',
-      position: { left: '50%', top: '50%' },
-      color: 'cyan'
+      mode: 'dynamic', 
+      color: 'cyan',
+      restOpacity: 0 
     });
 
     joystick.on('dir', (evt, data) => {
@@ -71,5 +78,3 @@
       cursors.left = cursors.right = cursors.up = cursors.down = false;
     });
   </script>
-</body>
-</html>
